@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Loan Approval Prediction in Kenya</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='ipl-favicon.ico') }}">
+        <link rel="stylesheet" href="../static/styles.css">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class='heading_first'>Loan Approval Prediction for </span><span class="heading_second">ADRC Bank In Kenya</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		</div>
+    	</div>
+
+
+            <!-- Prediction Form -->
+            <div class='div2'>
+                <form action="{{ url_for('predict') }}" method="POST">
+                    <!-- Batting Team Dropdown -->
+                    <select class="form-input align-center" name="Gender">
+                        <option value="none">--- Select Gender ---</option>
+                        <option value="Gender">Male</option>
+                        <option value="Gender">Female</option>
+                    </select><br>
+                    <!-- Bowling Team Dropdown -->
+                    <select class="form-input align-center" name="Married">
+                        <option value="none">--- Select Marital Status ---</option>
+                        <option value="Married">Not Married</option>
+                        <option value="Married">Married</option>
+                    </select><br>
+                    <select class="form-input align-center" name="Education">
+                        <option value="none">--- select Level of Education ---</option>
+                        <option value="Education">Not Graduate</option>
+                        <option value="Education">Graduate</option>
+                    </select><br>
+                    <select class="form-input align-center" name="Self_Employed">
+                        <option value="none">--- Select Self Employed ---</option>
+                        <option value="Self_Employed">No</option>
+                        <option value="Self_Employed">Yes</option>
+                    </select><br>
+                    <input class="form-input" type="text" name="Property_Area" placeholder="Property_Area eg. 2"><br>
+                    <input class="form-input" type="text" name="Dependents" placeholder="Dependents eg. 2"><br>
+                    <input class="form-input" type="text" name="Credit_History" placeholder="Credit History eg. 1"><br>
+                    <input class="form-input" type="text" name="ApplicantIncome" placeholder="Applicant Income eg. 1000"><br>
+                    <input class="form-input" type="text" name="CoapplicantIncome" placeholder="Co-applicant Income eg. 1500"><br>
+                    <input class="form-input" type="text" name="Loan_Amount_Term" placeholder="Loan Amount Terms eg. 360"><br>
+                    <input class="form-input" type="text" name="LoanAmount" placeholder="Loan Amount eg. 1500"><br>
+
+			<!---<input type="submit" class="myButton" value="Predict Score">-->
+             <input type="submit" class="myButton" onclick="onClickedEstimatePrice()" value="Predict Loan Approval">
+	        <div id="uiEstimatedPrice" class="result">	<h2></h2> </div>
+                     <!-- Footer -->
+
+        	</form>
+            </div>
+    <style>
+
+{
+    box-sizing:border-box;
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100%;
+	margin: 0;
+	background-color: #92bde7;
+	color:#485e74;
+	line-height:1.6;
+}
+
+/* Website Title */
+.container{
+	color: #000000;
+    padding: 20px;
+	display: block;
+	text-align: center;
+}
+
+.container-heading{
+    margin: 0;
+}
+
+.heading_first{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
+}
+
+.heading_second{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	font-style: italic;
+}
+
+.description p{
+    font-style: italic;
+    font-size: 12px;
+	font-weight: 100;
+    margin: 0;
+}
+
+/* Prediction Area */
+.prediction-area{
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 20px 40px;
+}
+
+.div2 {
+	display: inline-block;
+	width: auto;
+	height: 429px;
+	text-align: center;
+
+}
+
+/* Form */
+.form{
+    display:flex;
+	flex-direction: row;
+	display: inline-block;
+	}
+
+.form-input{
+	background-color: #E9E9E9;
+
+	width: 300px;
+	height: 30px;
+	border-radius: 3px;
+	border: 5;
+	text-align: center;
+	-webkit-box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+	box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+	margin-bottom: 10px;
+	border: 2px solid steelblue;
+	background: #faf6d9;
+	margin-bottom: 10px;
+
+	margin-left: 200%;
+
+}
+
+/* Predict Button */
+.myButton {
+	background-color:#0c0c0c;
+	border-radius: 5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:7px 30px;
+	margin-top: 10px;
+	text-decoration:none;
+	transition: 0.5s ease-out;
+	margin-left: 210%;
+
+}
+
+
+    </style>
+
+    </body>
+</html>
